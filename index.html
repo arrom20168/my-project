@@ -1,138 +1,284 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collection · Matchbox Labels</title>
+  <title>Matchbox Land | Cute Collection</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- ===== ส่วนหัว: โลโก้ + เมนู ===== -->
+
+<!-- ===== รูปทรงตกแต่งพื้นหลัง ===== -->
+<div class="decorations" aria-hidden="true">
+
+  <!-- เมฆ -->
+  <svg class="deco cloud cloud-1" viewBox="0 0 140 90">
+    <path d="M30 65 C8 65 8 40 28 35 C30 12 60 12 69 32 C87 19 109 31 109 47 C133 47 135 70 113 72 L31 72Z"
+      fill="#fff" stroke="#78c9ed" stroke-width="4"/>
+  </svg>
+
+  <svg class="deco cloud cloud-2" viewBox="0 0 140 90">
+    <path d="M30 65 C8 65 8 40 28 35 C30 12 60 12 69 32 C87 19 109 31 109 47 C133 47 135 70 113 72 L31 72Z"
+      fill="#fff" stroke="#78c9ed" stroke-width="4"/>
+  </svg>
+
+  <!-- ดาว -->
+  <svg class="deco star star-1" viewBox="0 0 100 100">
+    <path d="M50 5 L62 36 L95 38 L70 59 L78 92 L50 73 L22 92 L30 59 L5 38 L38 36Z"
+      fill="#ffe17b" stroke="#f1b942" stroke-width="4"/>
+  </svg>
+
+  <svg class="deco star star-2" viewBox="0 0 100 100">
+    <path d="M50 5 L62 36 L95 38 L70 59 L78 92 L50 73 L22 92 L30 59 L5 38 L38 36Z"
+      fill="#b9e6f5" stroke="#78c9ed" stroke-width="4"/>
+  </svg>
+
+  <!-- หัวใจ -->
+  <svg class="deco heart heart-1" viewBox="0 0 100 90">
+    <path d="M50 80 C35 63 5 43 15 22 C25 2 43 15 50 29 C60 8 83 7 90 25 C100 47 69 68 50 80Z"
+      fill="#ffb8c9" stroke="#e9799c" stroke-width="4"/>
+  </svg>
+
+  <!-- ดอกไม้ -->
+  <svg class="deco flower flower-1" viewBox="0 0 100 100">
+    <g fill="#ffb8c9" stroke="#e9799c" stroke-width="3">
+      <ellipse cx="50" cy="23" rx="15" ry="21"/>
+      <ellipse cx="77" cy="43" rx="15" ry="21" transform="rotate(60 77 43)"/>
+      <ellipse cx="67" cy="72" rx="15" ry="21" transform="rotate(120 67 72)"/>
+      <ellipse cx="33" cy="72" rx="15" ry="21" transform="rotate(-120 33 72)"/>
+      <ellipse cx="23" cy="43" rx="15" ry="21" transform="rotate(-60 23 43)"/>
+    </g>
+    <circle cx="50" cy="50" r="13" fill="#ffe17b" stroke="#f1b942" stroke-width="3"/>
+  </svg>
+
+  <!-- สายรุ้ง -->
+  <svg class="deco rainbow" viewBox="0 0 150 100">
+    <path d="M20 85 A55 55 0 0 1 130 85" fill="none" stroke="#ffb8c9" stroke-width="13"/>
+    <path d="M30 85 A45 45 0 0 1 120 85" fill="none" stroke="#ffe17b" stroke-width="13"/>
+    <path d="M40 85 A35 35 0 0 1 110 85" fill="none" stroke="#b9e6f5" stroke-width="13"/>
+    <path d="M50 85 A25 25 0 0 1 100 85" fill="none" stroke="#ccebd5" stroke-width="13"/>
+  </svg>
+
+</div>
+
+<!-- ===== HEADER ===== -->
 <header class="site-header">
-  <a class="logo" href="#">MATCH<span>BOX</span></a>
+  <a class="logo" href="#">
+    <span class="logo-icon">✿</span>
+    MATCH<span class="logo-pink">BOX</span>
+  </a>
+
   <nav>
     <ul class="menu">
       <li><a href="#">Home</a></li>
-      <li><a href="#">Story</a></li>
-      <li><a class="active" href="#">Collection</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a class="active" href="#collection">Collection</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <!-- ===== บทนำของหน้า ===== -->
-  <section class="intro">
-    <p class="eyebrow">Collection · 9 ชิ้น</p>
-    <h1>Matchbox Labels</h1>
-    <p class="lead">ฉลากกล่องไม้ขีดไฟที่เก็บจากตลาดนัดและร้านของเก่า แต่ละแผ่นกว้างเพียง 36&nbsp;×&nbsp;52&nbsp;มม. แต่ใช้สี รูปทรง และตัวอักษรได้เต็มพื้นที่</p>
-    <ul class="filters">
-      <li><a class="active" href="#">ทั้งหมด</a></li>
-      <li><a href="#">ท้องฟ้า</a></li>
-      <li><a href="#">ธรรมชาติ</a></li>
-      <li><a href="#">เรขาคณิต</a></li>
-    </ul>
-  </section>
 
-  <!-- ===== ชิ้นเด่น ===== -->
-  <section class="featured">
-    <img src="images/label-01.jpg" alt="ฉลาก Sunrise พื้นเหลือง พระอาทิตย์สีแดงกำลังขึ้น">
-    <div class="featured-text">
-      <p class="eyebrow">ชิ้นโปรด · No.01</p>
-      <h2>Sunrise</h2>
-      <p>ชิ้นแรกที่เริ่มเก็บ เจอในกล่องของเก่าที่ตลาดนัด พระอาทิตย์ครึ่งดวงกับเส้นรัศมี 13 เส้น ใช้แค่สามสี แต่อ่านออกได้จากระยะไกล</p>
-      <ul class="meta">
-        <li><b>ปี</b> 2518</li>
-        <li><b>หมวด</b> ท้องฟ้า</li>
-        <li><b>จำนวนก้าน</b> 40</li>
-      </ul>
+  <!-- ===== INTRO ===== -->
+  <section class="intro" id="story">
+
+    <span class="sticker sticker-left">♡ Hello!</span>
+    <span class="sticker sticker-right">✦ Cute things ✦</span>
+
+    <p class="eyebrow">🌷 MY LITTLE COLLECTION 🌷</p>
+
+    <h1>Matchbox <span>Labels</span></h1>
+
+    <p class="lead">
+      ยินดีต้อนรับสู่โลกใบเล็ก ๆ ของฉลากกล่องไม้ขีดไฟ
+      รวมลวดลายสีสันที่เต็มไปด้วยความทรงจำ
+      และเสน่ห์ของงานออกแบบในแต่ละยุค
+    </p>
+
+    <div class="hero-tags">
+      <span>🌈 Colorful</span>
+      <span>🧸 Kawaii</span>
+      <span>💌 Vintage</span>
     </div>
+
+    <ul class="filters">
+      <li><a class="active" href="#collection">♡ ทั้งหมด</a></li>
+      <li><a href="#collection">☁️ ท้องฟ้า</a></li>
+      <li><a href="#collection">🌼 ธรรมชาติ</a></li>
+      <li><a href="#collection">⭐ เรขาคณิต</a></li>
+    </ul>
+
   </section>
 
-  <!-- ===== แกลเลอรี ===== -->
-  <section class="gallery">
-    <h2 class="section-title">ทั้งหมด</h2>
+  <!-- ===== FEATURED ===== -->
+  <section class="featured">
+
+    <div class="featured-image">
+      <span class="image-badge">⭐ BEST PICK</span>
+
+      <img src="images/label-01.jpg"
+           alt="ฉลาก Sunrise พระอาทิตย์สีแดงบนพื้นเหลือง">
+
+      <span class="image-heart">♡</span>
+    </div>
+
+    <div class="featured-text">
+      <p class="eyebrow">💌 LITTLE TREASURE · NO.01</p>
+
+      <h2>Sunrise <span>☀️</span></h2>
+
+      <p>
+        ชิ้นแรกที่เริ่มเก็บ พบในกล่องของเก่าที่ตลาดนัด
+        พระอาทิตย์ครึ่งดวงกับเส้นรัศมี 13 เส้น
+        ใช้เพียงสามสี แต่โดดเด่นและมีเอกลักษณ์
+      </p>
+
+      <ul class="meta">
+        <li><b>📅 ปี</b>2518</li>
+        <li><b>🎨 หมวด</b>ท้องฟ้า</li>
+        <li><b>🔥 จำนวนก้าน</b>40</li>
+      </ul>
+
+      <a class="cute-button" href="#collection">
+        Explore Collection <span>→</span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="collection">
+
+    <div class="section-heading">
+      <p class="eyebrow">🎀 A LITTLE GALLERY 🎀</p>
+      <h2 class="section-title">My Collection <span>♡</span></h2>
+      <p>ฉลากชิ้นเล็ก ๆ ที่เต็มไปด้วยเรื่องราว</p>
+    </div>
+
     <div class="grid">
-      <figure class="card">
-        <img src="images/label-01.jpg" alt="ฉลาก Sunrise พระอาทิตย์สีแดงบนพื้นเหลือง">
+
+      <figure class="card pink">
+        <div class="card-image">
+          <span class="number">01</span>
+          <img src="images/label-01.jpg" alt="ฉลาก Sunrise">
+        </div>
         <figcaption>
-          <span class="no">No.01</span>
-          <h3>Sunrise</h3>
+          <h3>☀️ Sunrise</h3>
           <p>ท้องฟ้า · 2518</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-02.jpg" alt="ฉลาก Night Star ดาวสีเหลืองบนพื้นน้ำเงิน">
+
+      <figure class="card blue">
+        <div class="card-image">
+          <span class="number">02</span>
+          <img src="images/label-02.jpg" alt="ฉลาก Night Star">
+        </div>
         <figcaption>
-          <span class="no">No.02</span>
-          <h3>Night Star</h3>
+          <h3>⭐ Night Star</h3>
           <p>ท้องฟ้า · 2521</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-03.jpg" alt="ฉลาก Crescent พระจันทร์เสี้ยวบนพื้นดำ">
+
+      <figure class="card yellow">
+        <div class="card-image">
+          <span class="number">03</span>
+          <img src="images/label-03.jpg" alt="ฉลาก Crescent">
+        </div>
         <figcaption>
-          <span class="no">No.03</span>
-          <h3>Crescent</h3>
+          <h3>🌙 Crescent</h3>
           <p>ท้องฟ้า · 2516</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-04.jpg" alt="ฉลาก Wave เส้นคลื่นสีน้ำเงิน">
+
+      <figure class="card green">
+        <div class="card-image">
+          <span class="number">04</span>
+          <img src="images/label-04.jpg" alt="ฉลาก Wave">
+        </div>
         <figcaption>
-          <span class="no">No.04</span>
-          <h3>Wave</h3>
+          <h3>🌊 Wave</h3>
           <p>ธรรมชาติ · 2524</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-05.jpg" alt="ฉลาก Mountain ภูเขาสองลูกบนพื้นแดง">
+
+      <figure class="card purple">
+        <div class="card-image">
+          <span class="number">05</span>
+          <img src="images/label-05.jpg" alt="ฉลาก Mountain">
+        </div>
         <figcaption>
-          <span class="no">No.05</span>
-          <h3>Mountain</h3>
+          <h3>⛰️ Mountain</h3>
           <p>ธรรมชาติ · 2519</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-06.jpg" alt="ฉลาก Bloom ดอกไม้กลีบแดง">
+
+      <figure class="card pink">
+        <div class="card-image">
+          <span class="number">06</span>
+          <img src="images/label-06.jpg" alt="ฉลาก Bloom">
+        </div>
         <figcaption>
-          <span class="no">No.06</span>
-          <h3>Bloom</h3>
+          <h3>🌼 Bloom</h3>
           <p>ธรรมชาติ · 2527</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-07.jpg" alt="ฉลาก Diamond ลายข้าวหลามตัดสีดำ">
+
+      <figure class="card blue">
+        <div class="card-image">
+          <span class="number">07</span>
+          <img src="images/label-07.jpg" alt="ฉลาก Diamond">
+        </div>
         <figcaption>
-          <span class="no">No.07</span>
-          <h3>Diamond</h3>
+          <h3>💎 Diamond</h3>
           <p>เรขาคณิต · 2522</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-08.jpg" alt="ฉลาก Stripe ลายเส้นทแยงบนพื้นแดง">
+
+      <figure class="card yellow">
+        <div class="card-image">
+          <span class="number">08</span>
+          <img src="images/label-08.jpg" alt="ฉลาก Stripe">
+        </div>
         <figcaption>
-          <span class="no">No.08</span>
-          <h3>Stripe</h3>
+          <h3>🎀 Stripe</h3>
           <p>เรขาคณิต · 2525</p>
         </figcaption>
       </figure>
-      <figure class="card">
-        <img src="images/label-09.jpg" alt="ฉลาก Target วงกลมซ้อนสีแดงบนพื้นน้ำเงิน">
+
+      <figure class="card green">
+        <div class="card-image">
+          <span class="number">09</span>
+          <img src="images/label-09.jpg" alt="ฉลาก Target">
+        </div>
         <figcaption>
-          <span class="no">No.09</span>
-          <h3>Target</h3>
+          <h3>🎯 Target</h3>
           <p>เรขาคณิต · 2520</p>
         </figcaption>
       </figure>
+
     </div>
   </section>
+
 </main>
 
-<!-- ===== ส่วนท้าย ===== -->
-<footer class="site-footer">
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="about">
+  <div class="footer-decoration">🌷 ✨ ♡ ✨ 🌷</div>
+  <div class="footer-logo">MATCH<span>BOX</span> ♡</div>
+  <p>Made with love & little memories</p>
   <p>[อารมณ์ ศรีบุตร] · [68096666]</p>
-  <p>GAD23867 Coding for Graphic Design · ข้อมูลในหน้านี้เป็นตัวอย่างสมมติ</p>
+  <p class="copyright">
+    GAD23867 Coding for Graphic Design · ข้อมูลตัวอย่างสมมติ
+  </p>
 </footer>
+
 </body>
 </html>

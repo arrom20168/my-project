@@ -1,400 +1,781 @@
+
 /* ==========================================
-   STEP 3 · CSS พื้นฐาน: สี ฟอนต์ ตัวแปร
+   MATCHBOX LAND — CUTE CARTOON THEME
    ========================================== */
 
-/* ตัวแปรสี (เปลี่ยนที่เดียว เปลี่ยนทั้งเว็บ) */
-
 :root {
-  --paper: #cfa641;   /* สีกระดาษคราฟต์ พื้นหลังหลัก */
-  --card: #75a2a8;    /* สีการ์ด */
-  --ink: #f5f4f4;     /* สีตัวอักษร */
-  --muted: #ebe9e7;   /* สีตัวอักษรรอง */
-  --red: #0d100f;     /* สีเน้น: หัวไม้ขีด */
+  --cream: #fff9ed;
+  --pink: #ffb8c9;
+  --pink-dark: #f0789b;
+  --blue: #b9e6f5;
+  --yellow: #ffe69a;
+  --green: #ccebd5;
+  --purple: #e5d7ff;
+  --white: #ffffff;
+  --ink: #55444b;
+  --muted: #927e86;
 
-  --font-display: 'Big Shoulders Display', Impact, sans-serif;
-  --font-body: 'Anuphan', Tahoma, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-display: 'Fredoka', sans-serif;
+  --font-body: 'Anuphan', sans-serif;
 }
 
-/* ให้ width รวม padding และ border เสมอ (Box Model) */
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 25px;
 }
 
-h1, h2, h3 {
+body {
+  position: relative;
   margin: 0;
-  line-height: 1.1;
+  color: var(--ink);
+  background-color: var(--cream);
+  background-image: radial-gradient(
+    #f5d9df 1.5px,
+    transparent 1.5px
+  );
+  background-size: 25px 25px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 a {
   color: inherit;
-}
-
-/* ป้ายตัวเล็กเหนือหัวข้อ */
-.eyebrow {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--red);
-}
-
-/* ==========================================
-   STEP 4 · Header และเมนู ด้วย Flexbox
-   ========================================== */
-.site-header {
-  display: flex;
-  flex-direction: column;   /* มือถือ: เรียงแนวตั้ง */
-  gap: 12px;
-  padding: 16px 20px;
-  background: var(--ink);
-  color: var(--card);
-}
-
-.logo {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 900;
-  letter-spacing: 0.02em;
   text-decoration: none;
 }
 
-.logo span {
-  color: var(--red);
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--pink);
+}
+
+/* ===== BACKGROUND DECORATIONS ===== */
+
+.decorations {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.deco {
+  position: absolute;
+  display: block;
+  height: auto;
+  filter: drop-shadow(
+    2px 4px 0 rgba(240, 120, 155, 0.12)
+  );
+  animation: floaty 4s ease-in-out infinite;
+}
+
+.cloud-1 {
+  top: 220px;
+  left: 2%;
+  width: 95px;
+}
+
+.cloud-2 {
+  top: 1050px;
+  right: 2%;
+  width: 80px;
+  animation-delay: 1s;
+}
+
+.star-1 {
+  top: 420px;
+  right: 5%;
+  width: 48px;
+  animation-delay: 0.5s;
+}
+
+.star-2 {
+  top: 780px;
+  left: 3%;
+  width: 35px;
+  animation-delay: 1.5s;
+}
+
+.heart-1 {
+  top: 650px;
+  left: 4%;
+  width: 42px;
+  animation-delay: 0.8s;
+}
+
+.flower-1 {
+  top: 950px;
+  right: 3%;
+  width: 65px;
+  animation-delay: 1.2s;
+}
+
+.rainbow {
+  top: 300px;
+  right: 3%;
+  width: 100px;
+  animation-delay: 0.4s;
+}
+
+/* ===== HEADER ===== */
+
+.site-header {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--white);
+  border: 3px solid var(--pink);
+  border-top: none;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 5px 0 rgba(240, 120, 155, 0.12);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo-icon {
+  color: #f5b84d;
+  font-size: 30px;
+}
+
+.logo-pink,
+.footer-logo span {
+  color: var(--pink-dark);
 }
 
 .menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  flex-wrap: wrap;           /* ที่ไม่พอให้ขึ้นบรรทัดใหม่ */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu a {
   display: block;
-  padding: 10px 16px;
-  min-height: 44px;          /* ปุ่มใหญ่พอให้นิ้วกด */
-  border: 1px solid rgba(14, 11, 6, 0.731);
+  padding: 8px 15px;
+  border: 2px solid transparent;
   border-radius: 999px;
-  font-family: var(--font-mono);
   font-size: 14px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
+  font-weight: 700;
+  transition: 0.25s ease;
 }
 
 .menu a.active {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--pink);
+  border-color: var(--pink-dark);
 }
 
-/* ==========================================
-   STEP 5 · บทนำ + Typography
-   ========================================== */
+.menu li:nth-child(2) a {
+  background: #fff3bf;
+}
+
+.menu li:nth-child(4) a {
+  background: #d8f3ff;
+}
+
+/* ===== INTRO ===== */
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
 .intro {
-  max-width: 1200px;
-  margin: 0 auto;            /* จัดกล่องไว้กลางจอ */
-  padding: 40px 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px 45px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--pink-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .intro h1 {
+  margin-bottom: 20px;
   font-family: var(--font-display);
-  font-size: 56px;
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 0.9;
-  overflow-wrap: anywhere;   /* คำยาวเกินจอให้ตัดบรรทัดได้ */
+  font-size: clamp(48px, 10vw, 92px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  overflow-wrap: anywhere;
+}
+
+.intro h1 span {
+  color: var(--pink-dark);
+  text-shadow: 3px 3px 0 var(--yellow);
 }
 
 .lead {
-  max-width: 60ch;           /* บรรทัดไม่ยาวเกินไป อ่านง่าย */
-  margin: 0;
-  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 24px;
   color: var(--muted);
+  font-size: 16px;
 }
 
+.sticker {
+  position: absolute;
+  padding: 8px 15px;
+  border: 3px solid var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 0 rgba(85, 68, 75, 0.1);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.sticker-left {
+  top: 30px;
+  left: 5%;
+  background: var(--yellow);
+  transform: rotate(-10deg);
+}
+
+.sticker-right {
+  top: 30px;
+  right: 5%;
+  background: var(--blue);
+  transform: rotate(8deg);
+}
+
+/* ===== TAGS ===== */
+
+.hero-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.hero-tags span {
+  padding: 6px 14px;
+  background: var(--white);
+  border: 2px solid var(--pink);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ===== FILTERS ===== */
+
 .filters {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .filters a {
   display: block;
-  padding: 6px 14px;
-  border: 2px solid var(--ink);
+  padding: 8px 16px;
+  background: var(--white);
+  border: 2px solid #f1dce0;
   border-radius: 999px;
   font-size: 14px;
-  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s ease;
 }
 
 .filters a.active {
-  background: var(--ink);
-  color: var(--card);
+  background: var(--pink);
+  border-color: var(--pink-dark);
 }
 
-/* ==========================================
-   STEP 6 · การ์ดแกลเลอรี + รูปภาพ
-   ========================================== */
+/* ===== FEATURED ===== */
 
-/* รูปไม่ล้นกล่อง (Flexible Images) */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.gallery {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 20px 56px;
-}
-
-.section-title {
-  margin-bottom: 16px;
-  font-size: 22px;
-}
-
-/* มือถือ: 1 คอลัมน์ (Mobile-first) */
-.grid {
+.featured {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-.card {
-  margin: 0;                 /* figure มี margin มาให้ ต้องล้างออก */
-  padding: 12px;
-  background: var(--card);
-  border-radius: 6px;
-}
-
-.card img {
-  width: 100%;
-  aspect-ratio: 4 / 5;       /* ทุกรูปสัดส่วนเท่ากัน */
-  object-fit: cover;         /* ตัดรูปให้เต็มกรอบ ไม่บิดเบี้ยว */
-}
-
-.card figcaption {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 12px;
-  padding: 12px 4px 4px;
-}
-
-.no {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--red);
-}
-
-.card h3 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.card p {
-  width: 100%;
-  margin: 0;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-/* ==========================================
-   STEP 7 · ชิ้นเด่น (Featured)
-   ========================================== */
-.featured {
-  max-width: 1200px;
+  gap: 24px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  gap: 20px;
+  padding: 20px;
 }
 
-.featured img {
-  width: 100%;
+.featured-image {
+  position: relative;
+  align-self: start;
+  padding: 12px;
+  background: var(--white);
+  border: 3px solid var(--pink);
+  border-radius: 30px;
+  box-shadow: 8px 8px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+.featured-image img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 20px;
+}
+
+.image-badge {
+  position: absolute;
+  z-index: 1;
+  top: 22px;
+  left: 22px;
+  padding: 7px 12px;
+  background: var(--yellow);
+  border: 2px solid var(--white);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  transform: rotate(-5deg);
+}
+
+.image-heart {
+  position: absolute;
+  right: -15px;
+  bottom: 25px;
+  color: var(--pink-dark);
+  font-size: 50px;
+  -webkit-text-stroke: 2px white;
 }
 
 .featured-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 12px;
-  padding: 24px;
-  background: var(--ink);
-  color: var(--card);
-  border-radius: 6px;
+  padding: 28px;
+  background: var(--blue);
+  border: 3px solid var(--white);
+  border-radius: 30px;
+  box-shadow: 6px 6px 0 #8ccde3;
+}
+
+.featured-text .eyebrow {
+  margin-bottom: 0;
 }
 
 .featured-text h2 {
+  margin: 0;
   font-family: var(--font-display);
-  font-size: 56px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-size: clamp(42px, 7vw, 64px);
+  font-weight: 700;
 }
 
-.featured-text p {
+.featured-text h2 span {
+  display: inline-block;
+  animation: bob 2s ease-in-out infinite;
+}
+
+.featured-text > p:not(.eyebrow) {
   margin: 0;
 }
 
 .meta {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  font-family: var(--font-mono);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0;
+  margin: 10px 0;
+  list-style: none;
   font-size: 13px;
 }
 
 .meta li {
-  padding-top: 8px;
-  border-top: 1px solid rgba(239, 230, 212, 0.35);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
 }
 
 .meta b {
   display: block;
-  font-weight: 400;
-  color: #c40505;
+  margin-bottom: 4px;
+  color: var(--pink-dark);
 }
 
-.site-footer {
-  padding: 24px 20px;
-  background: var(--ink);
-  color: var(--card);
-  font-size: 14px;
+.cute-button {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--pink);
+  border: 2px solid var(--white);
+  border-radius: 999px;
+  box-shadow: 0 4px 0 var(--pink-dark);
+  font-weight: 700;
+  transition: 0.2s ease;
 }
 
-.site-footer p {
-  margin: 0;
+/* ===== GALLERY ===== */
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
 }
 
-/* ==========================================
-   STEP 8 · Responsive ด้วย Media Queries
-   เขียนแบบ Mobile-first: ค่าด้านบนคือมือถือ
-   แล้วเพิ่มของสำหรับจอใหญ่ทีละขั้น
-   ========================================== */
-
-/* ป้ายบอกขนาดจอ (ช่วยทดสอบ ลบออกก่อนส่งงาน) */
-
-
-/* แท็บเล็ต: 768px ขึ้นไป */
-@media (min-width: 768px) {
-  body::after {
-    content: "TABLET · 768px ขึ้นไป";
-  }
-
-  .site-header {
-    flex-direction: row;               /* เมนูมาอยู่แถวเดียวกับโลโก้ */
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 40px;
-  }
-
-  .intro,
-  .featured,
-  .gallery {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr 1fr;    /* 2 คอลัมน์ */
-  }
-
-  .featured {
-    grid-template-columns: 1fr 1fr;    /* รูปซ้าย ข้อความขวา */
-  }
-
-  .site-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 24px 40px;
-  }
+.section-heading {
+  margin-bottom: 35px;
+  text-align: center;
 }
 
-/* เดสก์ท็อป: 1024px ขึ้นไป */
-@media (min-width: 1024px) {
-  body::after {
-    content: "DESKTOP · 1024px ขึ้นไป";
-  }
-
-  .grid {
-    grid-template-columns: repeat(3, 1fr);   /* 3 คอลัมน์ */
-    gap: 28px;
-  }
-
-  .featured {
-    grid-template-columns: 5fr 7fr;
-  }
-
-  .featured-text {
-    justify-content: center;
-    padding: 48px;
-  }
+.section-heading > p:last-child {
+  color: var(--muted);
 }
 
-/* ==========================================
-   STEP 9 · เก็บรายละเอียด
-   ========================================== */
-
-/* แถบกระดาษทรายข้างกล่องไม้ขีด */
-.striker {
-  height: 14px;
-  background: repeating-linear-gradient(45deg, #5A3B22 0 6px, #2E1E12 6px 12px);
+.section-title {
+  margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 52px);
 }
 
-/* หัวข้อใหญ่ขึ้นตามความกว้างจอ แต่มีค่าต่ำสุด–สูงสุด */
-.intro h1 {
-  font-size: clamp(56px, 12vw, 168px);
+.section-title span {
+  color: var(--pink-dark);
 }
 
-/* hover เฉพาะอุปกรณ์ที่มีเมาส์ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
 .card {
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  overflow: hidden;
+  border: 3px solid var(--pink);
+  border-radius: 25px;
+  box-shadow: 0 6px 0 rgba(85, 68, 75, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.card.pink {
+  background: #ffe1e9;
+  border-color: #ffb8c9;
+}
+
+.card.blue {
+  background: #d8f3ff;
+  border-color: #91dafa;
+}
+
+.card.yellow {
+  background: #fff2bd;
+  border-color: #f8d96d;
+}
+
+.card.green {
+  background: #d9f7e4;
+  border-color: #8fe0ad;
+}
+
+.card.purple {
+  background: #eee3ff;
+  border-color: #c9a9ff;
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  background: var(--cream);
+}
+
+.card-image img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.number {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  background: var(--white);
+  border: 2px solid var(--pink-dark);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.card figcaption {
+  padding: 16px 8px 8px;
+}
+
+.card h3 {
+  margin-bottom: 5px;
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===== FOOTER ===== */
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  background: #ffe3e9;
+  border-top: 4px dashed var(--pink-dark);
+  text-align: center;
+}
+
+.footer-decoration {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.footer-logo {
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.site-footer p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.copyright {
+  color: var(--muted);
+  font-size: 12px !important;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(8deg);
+  }
+}
+
+/* ===== HOVER ===== */
+
 @media (hover: hover) {
   .card:hover {
-    transform: translateY(-6px) rotate(-1deg);
-    box-shadow: 0 10px 0 var(--ink);
+    transform: translateY(-7px) rotate(-1deg);
+    box-shadow: 0 12px 0 rgba(85, 68, 75, 0.12);
+  }
+
+  .card:hover .card-image img {
+    transform: scale(1.05);
   }
 
   .menu a:hover,
   .filters a:hover {
-    background: var(--red);
-    border-color: var(--red);
-    color: #fefcfc;
+    background: var(--yellow);
+    border-color: #f0c95e;
+  }
+
+  .cute-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 var(--pink-dark);
   }
 }
 
-/* เคารพผู้ใช้ที่ตั้งค่าลดการเคลื่อนไหว */
+/* ===== TABLET ===== */
+
+@media (min-width: 600px) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 18px 30px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .featured-image img {
+    height: 100%;
+    min-height: 350px;
+  }
+
+  .featured-text {
+    padding: 30px;
+  }
+}
+
+/* ===== DESKTOP ===== */
+
+@media (min-width: 900px) {
+  .site-header {
+    margin: 0 5%;
+    padding: 18px 30px;
+    border-top: 3px solid var(--pink);
+    border-radius: 0 0 28px 28px;
+  }
+
+  .intro {
+    padding-top: 90px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .featured {
+    gap: 40px;
+  }
+
+  .featured-text {
+    padding: 40px;
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 420px) {
+  .logo {
+    font-size: 28px;
+  }
+
+  .sticker {
+    font-size: 12px;
+    padding: 5px 9px;
+  }
+
+  .intro {
+    padding-top: 80px;
+  }
+
+  .menu {
+    gap: 4px;
+  }
+
+  .menu a {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .meta {
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .meta li {
+    padding: 8px 5px;
+  }
+
+  .featured-text {
+    padding: 22px;
+  }
+
+  .deco {
+    width: 40px;
+  }
+
+  .cloud-1 {
+    top: 280px;
+    left: -12px;
+    width: 50px;
+  }
+
+  .cloud-2,
+  .rainbow {
+    display: none;
+  }
+
+  .star-1 {
+    top: 460px;
+    right: 2%;
+  }
+
+  .star-2 {
+    top: 850px;
+  }
+
+  .heart-1 {
+    top: 720px;
+    left: 1%;
+  }
+
+  .flower-1 {
+    top: 1100px;
+    right: 1%;
+    width: 45px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
 @media (prefers-reduced-motion: reduce) {
-  .card {
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
